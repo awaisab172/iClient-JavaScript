@@ -15,6 +15,12 @@
   "dependencies": {
     "mapv": "2.0.38",
     "xlsx": "0.15.1",
-    "@supermap/iclient-common": "10.0.0"
-  }
+    "@supermap/iclient-common": "10.0.0",
+    "snyk": "^1.316.1"
+  },
+  "scripts": {
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
+  },
+  "snyk": true
 }
