@@ -40,7 +40,9 @@
     "build-docs-mapboxgl": "jsdoc -c ./build/jsdocs/mapboxgl/docs.json -R ./build/jsdocs/mapboxgl/index.md",
     "build-docs-classic": "jsdoc -c ./build/jsdocs/classic/docs.json -R ./build/jsdocs/classic/index.md",
     "pre-publish": "node ./build/publish.js --leaflet && node  ./build/publish.js --openlayers && node  ./build/publish.js --mapboxgl && node  ./build/publish.js --classic",
-    "publish": "npm run pre-publish && cd ./src/common && npm publish && cd ../leaflet && npm publish && cd ../openlayers && npm publish && cd ../mapboxgl && npm publish && cd ../classic && npm publish"
+    "publish": "npm run pre-publish && cd ./src/common && npm publish && cd ../leaflet && npm publish && cd ../openlayers && npm publish && cd ../mapboxgl && npm publish && cd ../classic && npm publish",
+    "snyk-protect": "snyk protect",
+    "prepublish": "npm run snyk-protect"
   },
   "keywords": [
     "SuperMap",
@@ -130,9 +132,11 @@
     "promise-polyfill": "6.0.2",
     "three": "0.92.0",
     "xlsx": "0.15.1",
-    "xml-js": "1.6.8"
+    "xml-js": "1.6.8",
+    "snyk": "^1.316.1"
   },
   "pre-commit": [
     "lint"
-  ]
+  ],
+  "snyk": true
 }
